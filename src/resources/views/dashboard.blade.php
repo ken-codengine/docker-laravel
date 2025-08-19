@@ -29,8 +29,11 @@
                 name="date" value="">
               @foreach ($session_times as $key => $times)
                 <div class="flex items-center py-1">
-                  {{ Form::checkbox('session_times', $key, [], ['id' => 'tag' . $key, 'class' => 'form-check-input']) }}
-                  {{ Form::label($times['start_time'] . ' ~ ' . $times['end_time'], [], ['class' => 'ml-2 text-sm font-medium text-gray-700']) }}
+                  <input type="checkbox" name="session_times[]" id="tag{{ $key }}" class="form-check-input"
+                    value="{{ $key }}">
+                  <label for="tag{{ $key }}"
+                    class="ml-2 text-sm font-medium text-gray-700">{{ $times['start_time'] }} ~
+                    {{ $times['end_time'] }}</label>
                 </div>
               @endforeach
             </div>

@@ -198,7 +198,7 @@ let calendar = new Calendar(calendarEl, {
         // ロックされた月か判定
         if (titleExists === true) {
           // 警告モーダルを表示する
-          cautionModal.show();
+          showModal('cautionModal');
           document.getElementById('caution-text').innerText = "";
         } else {
           // チェックボックスを全て未選択にしておく
@@ -223,7 +223,7 @@ let calendar = new Calendar(calendarEl, {
             //ロックされていた場合
             if (titleExists === true) {
               // 警告モーダルを表示
-              cautionModal.show();
+              showModal('cautionModal');
               //　登録済みの予定を警告文に表示
               document.getElementById('caution-text').innerText = info.event.startStr + " " + info.event.title;
 
@@ -291,7 +291,7 @@ let calendar = new Calendar(calendarEl, {
         document.getElementById('create_date').value = info.startStr;
 
         if (titleExists === true) { // データベースの月が1から始まる場合、+1を忘れずに
-          cautionModal.show();
+          showModal('cautionModal');
           document.getElementById('caution-text').innerText = info.event.startStr + " " + info.event.title;
         } else {
           deleteModal.show();
@@ -306,7 +306,7 @@ let calendar = new Calendar(calendarEl, {
             var titleExists = response.data.titleExists;
 
             if (titleExists === true) {
-              cautionModal.show();
+              showModal('cautionModal');
               document.getElementById('caution-text').innerText = info.event.startStr + " " + info.event.title;
             } else {
               axios
